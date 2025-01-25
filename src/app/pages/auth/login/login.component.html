@@ -1,0 +1,31 @@
+<div class="bg-white w-full lg:w-[28rem] p-6 rounded-lg shadow">
+  <h4 class="text-lg font-bold">Login</h4>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="mt-4">
+      <div class="flex flex-col mb-3">
+        <label for="email">Email</label>
+        <input
+          pInputText
+          id="email"
+          placeholder="Email Address"
+          formControlName="email"
+        />
+        <small class="required">Email is required.</small>
+      </div>
+      <div class="flex flex-col mb-3">
+        <label for="password">Password</label>
+        <input
+          pInputText
+          type="password"
+          id="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <small class="required">Password is required.</small>
+      </div>
+    </div>
+    <div class="flex mt-4">
+      <p-button label="Login" icon="pi pi-lock" />
+    </div>
+  </form>
+</div>

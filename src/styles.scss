@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+// @import "tailwindcss/base";
+// @import "tailwindcss/components";
+// @import "tailwindcss/utilities";
+
+@layer tailwind-base, primeng, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+@import "primeicons/primeicons.css";
+
+:root {
+  --p-datatable-header-padding: 0rem 0rem 1rem 0rem;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  @apply bg-gray-100;
+}
+
+// form
+form {
+  label {
+    @apply block mb-1 font-medium text-gray-700;
+  }
+
+  small.required {
+    @apply text-red-600 font-semibold mt-1;
+  }
+}

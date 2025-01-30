@@ -15,6 +15,10 @@ import { InputIconModule } from 'primeng/inputicon';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { SelectModule } from 'primeng/select';
 import { CardModule } from 'primeng/card';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialog } from 'primeng/confirmdialog';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { DatePickerModule } from 'primeng/datepicker';
 
 const MODULES = [
   MenubarModule,
@@ -33,6 +37,10 @@ const MODULES = [
   MultiSelectModule,
   SelectModule,
   CardModule,
+  ToastModule,
+  ConfirmDialog,
+  InputNumberModule,
+  DatePickerModule,
 ];
 
 @NgModule({

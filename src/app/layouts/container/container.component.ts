@@ -1,8 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { SharedConfModule } from '../../shared/shared-conf.module';
 
 @Component({
   selector: 'app-container',
-  imports: [],
+  imports: [SharedConfModule],
+  standalone: true,
   templateUrl: './container.component.html',
   styleUrl: './container.component.scss',
 })

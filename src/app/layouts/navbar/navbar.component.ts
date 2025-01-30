@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SharedConfModule } from '../../shared/shared-conf.module';
 import { MenuItem } from 'primeng/api';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +13,7 @@ import { RouterLink } from '@angular/router';
 export class NavbarComponent implements OnInit {
   items: MenuItem[] | undefined;
   menus: MenuItem[] | undefined;
+  authService: AuthService = inject(AuthService);
 
   ngOnInit() {
     this.menus = [
@@ -47,5 +49,9 @@ export class NavbarComponent implements OnInit {
         icon: 'pi pi-envelope',
       },
     ];
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

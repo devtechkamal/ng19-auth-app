@@ -7,6 +7,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { AuthService } from '../../../core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +18,8 @@ import {
 })
 export class LoginComponent {
   loginForm!: FormGroup;
+  authService: AuthService = inject(AuthService);
+  router: Router = inject(Router);
   fb: FormBuilder = inject(FormBuilder);
 
   constructor() {
@@ -27,7 +31,12 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
+      this.authService.login(this.loginForm.value).subscribe({
+        next: (response) => {
+          this.router.navigate(['/dashboard']);
+        },
+        error: (error) => {},
+      });
     } else {
       this.loginForm.markAllAsTouched();
     }

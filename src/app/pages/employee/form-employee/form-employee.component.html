@@ -1,0 +1,138 @@
+<app-container [pageTitle]="pageTitle">
+  <form [formGroup]="employeeForm" (submit)="onSubmit()">
+    <p-card>
+      <ng-template #title>
+        <h4 class="text-base font-bold">Employee Details</h4>
+      </ng-template>
+      <div
+        class="mt-3 w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-6"
+      >
+        <div class="flex flex-col mb-3">
+          <label for="firstName">First Name</label>
+          <input
+            pInputText
+            id="firstName"
+            placeholder="First Name"
+            formControlName="firstName"
+          />
+          @if (
+            employeeForm.get("firstName")?.hasError("required") &&
+            employeeForm.get("firstName")?.touched
+          ) {
+            <small class="required">First Name is required.</small>
+          }
+        </div>
+        <div class="flex flex-col mb-3">
+          <label for="lastName">Last Name</label>
+          <input
+            pInputText
+            id="lastName"
+            placeholder="Last Name"
+            formControlName="lastName"
+          />
+          @if (
+            employeeForm.get("lastName")?.hasError("required") &&
+            employeeForm.get("lastName")?.touched
+          ) {
+            <small class="required">Last Name is required.</small>
+          }
+        </div>
+        <div class="flex flex-col mb-3">
+          <label for="email">Email</label>
+          <input
+            pInputText
+            id="email"
+            placeholder="Email"
+            formControlName="email"
+          />
+          @if (
+            employeeForm.get("email")?.hasError("required") &&
+            employeeForm.get("email")?.touched
+          ) {
+            <small class="required">Email is required.</small>
+          }
+        </div>
+        <div class="flex flex-col mb-3">
+          <label for="phone">Phone</label>
+          <p-inputnumber
+            inputId="phone"
+            [useGrouping]="false"
+            placeholder="Phone"
+            formControlName="phone"
+          />
+          @if (
+            employeeForm.get("phone")?.hasError("required") &&
+            employeeForm.get("phone")?.touched
+          ) {
+            <small class="required">Phone is required.</small>
+          }
+        </div>
+        <div class="flex flex-col mb-3">
+          <label for="salary">Salary</label>
+          <p-inputnumber placeholder="Salary" formControlName="salary" />
+          @if (
+            employeeForm.get("salary")?.hasError("required") &&
+            employeeForm.get("salary")?.touched
+          ) {
+            <small class="required">Salary is required.</small>
+          }
+        </div>
+        <div class="flex flex-col mb-3">
+          <label for="salary">Hire Date</label>
+          <p-datepicker
+            styleClass="w-full"
+            placeholder="MM/DD/YYYY"
+            formControlName="hireDate"
+          />
+          @if (
+            employeeForm.get("hireDate")?.hasError("required") &&
+            employeeForm.get("hireDate")?.touched
+          ) {
+            <small class="required">Hire Date is required.</small>
+          }
+        </div>
+        <div class="flex flex-col mb-3">
+          <label for="position">Position</label>
+          <p-select
+            [options]="positions"
+            optionLabel="name"
+            optionValue="name"
+            placeholder="Position"
+            styleClass="w-full"
+            [showClear]="true"
+            formControlName="position"
+          />
+        </div>
+        <div class="flex flex-col mb-3">
+          <label for="department">Department</label>
+          <p-select
+            [options]="departments"
+            optionLabel="name"
+            optionValue="id"
+            placeholder="Department"
+            styleClass="w-full"
+            [showClear]="true"
+            formControlName="department"
+          />
+        </div>
+      </div>
+      <ng-template #footer>
+        <div class="flex mt-2">
+          <p-button
+            routerLink="/employee"
+            label="Cancel"
+            icon="pi pi-times"
+            severity="secondary"
+          />
+          <p-button
+            type="submit"
+            label="Save"
+            icon="pi pi-check"
+            class="ml-2"
+          />
+        </div>
+      </ng-template>
+    </p-card>
+  </form>
+</app-container>
+<p-toast />
